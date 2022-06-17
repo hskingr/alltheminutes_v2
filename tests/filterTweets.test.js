@@ -46,7 +46,12 @@ const mockData = {
   ]
 };
 
-test(`It's is filtered out of an array of tweets (strings)`, () => {
-  //   expect(filterTweets(mockData).toBe([]));
-  expect;
+test(`It's is filtered out of an array of tweets (strings)`, async () => {
+  const result = filterTweets(mockData);
+  expect(result).toHaveLength(2);
+});
+
+test(`No Results Returned`, async () => {
+  const result = filterTweets(mockData);
+  expect(result).toHaveLength(2);
 });
