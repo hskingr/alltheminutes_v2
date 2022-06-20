@@ -17,5 +17,5 @@ const returnedResult = {
 test('tweet is successfully retweeted', async () => {
   axios.post.mockResolvedValue(returnedResult);
   const returnedData = await retweetTheTweet(data);
-  expect(returnedData).toBe(returnedResult);
+  expect(returnedData).toStrictEqual(returnedResult);
 });

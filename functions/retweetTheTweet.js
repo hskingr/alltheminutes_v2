@@ -1,21 +1,38 @@
-import axios from 'axios';
+import { TwitterApi } from 'twitter-api-v2';
+import 'dotenv/config';
+import JSONdb from 'simple-json-db';
+
+// finish this by addding the time as a key and the tweet_id as a value
+// this function should return true if there is an entry at this time.
+// If there is, then the tweet should be untweeted and retweeted
+
+async function checkIfEntryExists(id) {
+  const db = new JSONdb(`db/storage.json`);
+  if (db.has(id)) {
+  } else {
+  }
+  return false;
+}
 
 export default async function retweetTheTweet({ id }) {
   try {
-    console.log('retweeting');
-    const result = await axios.post(`https://api.twitter.com/2/users/:id/retweets`, {
-      params: {
-        id: 1535850802010591232
-      },
-      headers: { Authorization: `Bearer ${process.env.TWITTER_API_BEARER_TOKEN}` },
-      data: {
-        tweet_id: id
-      }
+    const client = new TwitterApi({
+      appKey: process.env.TWITTER_API_KEY,
+      appSecret: process.env.TWITTER_API_KEY_SECRET,
+      accessToken: process.env.ACCESS_TOKEN,
+      accessSecret: process.env.ACCESS_TOKEN_SECRET
     });
-    // console.log(result);
-    return result;
+    if (checkIfEntryExists(id) === true) {
+      await client.v2.unretweet(process.env.TWITTER_USER_ID, id);
+    }
+    // const result = await client.v2.retweet(process.env.TWITTER_USER_ID, id);
+
+    // console.log(result.data);
+    // return result;
   } catch (error) {
-    console.log(error.response);
+    console.error(error);
     return null;
   }
 }
+
+retweetTheTweet('1537171206364864512');

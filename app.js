@@ -20,9 +20,9 @@ async function main() {
         if (filteredTweets === null) {
           console.log(`No Applicable Filtered Results`);
         } else {
-          const retweeted = await retweetTheTweet(filteredTweets[0]);
+          console.log(filteredTweets[0]);
+          // const retweeted = await retweetTheTweet(filteredTweets[0]);
           // retweet the tweet
-          console.log(retweeted);
         }
       }
     } else if (process.env.NODE_ENV === 'production') {
