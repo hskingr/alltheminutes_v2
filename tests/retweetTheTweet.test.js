@@ -1,7 +1,7 @@
-import axios from 'axios';
+import { TwitterApi } from 'twitter-api-v2';
 import retweetTheTweet from '../functions/retweetTheTweet.js';
 
-jest.mock('axios');
+jest.mock('twitter-api-v2');
 
 const data = {
   id: '1535850802010591232',
@@ -15,7 +15,8 @@ const returnedResult = {
 };
 
 test('tweet is successfully retweeted', async () => {
-  axios.post.mockResolvedValue(returnedResult);
-  const returnedData = await retweetTheTweet(data);
+  // need to mock the twitter-api-v2 mock
+  // have not implemented yet
+  // const returnedData = await retweetTheTweet(data);
   expect(returnedData).toStrictEqual(returnedResult);
 });

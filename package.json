@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --verbose",
-    "dev": "NODE_ENV=development nodemon app.js"
+    "dev": "NODE_ENV=development nodemon --ignore 'db/storage.json' app.js"
   },
   "type": "module",
   "devDependencies": {

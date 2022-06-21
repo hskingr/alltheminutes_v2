@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  alltheminutesupdated:
+    image: alltheminutesupdated
+    container_name: all-the-minutes-v2
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production

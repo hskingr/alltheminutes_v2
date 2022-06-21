@@ -20,8 +20,7 @@ async function main() {
         if (filteredTweets === null) {
           console.log(`No Applicable Filtered Results`);
         } else {
-          console.log(filteredTweets[0]);
-          // const retweeted = await retweetTheTweet(filteredTweets[0]);
+          const retweeted = await retweetTheTweet(filteredTweets[0]);
           // retweet the tweet
         }
       }
