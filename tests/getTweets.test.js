@@ -1,5 +1,4 @@
 import getTweets from '../functions/getTweets.js';
-import axios from 'axios';
 
 const results = [
   {
