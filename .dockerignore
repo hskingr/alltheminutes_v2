@@ -20,4 +20,11 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/.prettierrc
+**/.env
+**/.env.sample
+**/tests/*
+**/local_files/*
+**/.babelrc
+**/.eslintrc.json
 README.md

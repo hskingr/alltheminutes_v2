@@ -8,4 +8,10 @@ services:
       context: .
       dockerfile: ./Dockerfile
     environment:
-      NODE_ENV: production
+      - NODE_ENV
+      - TWITTER_API_KEY
+      - TWITTER_API_KEY_SECRET
+      - ACCESS_TOKEN
+      - ACCESS_TOKEN_SECRET
+      - TWITTER_USER_ID
+
