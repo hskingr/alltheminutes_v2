@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import { TwitterApi } from 'twitter-api-v2';
 import { scheduleJob } from 'node-schedule';
-import { lightFormat } from 'date-fns';
 import pkg from 'date-fns-tz';
 const { formatInTimeZone } = pkg;
 
@@ -44,10 +43,7 @@ async function main(timeNow) {
 
 scheduleJob('* * * * *', () => {
   const date = new Date();
-  // const timeZone = 'Europe/London';
-  // const zonedDate = utcToZonedTime(date, timeZone);
-  // const timeNow = lightFormat(zonedDate, `HH:mm`);
-  const timeNow = formatInTimeZone(date, 'Europe/London', 'HH:mm'); // 2014-10-25 10:46:20 GMT+2
+  const timeNow = formatInTimeZone(date, 'Europe/London', 'HH:mm');
   console.log(`Running Job for ${timeNow}`);
   main(timeNow);
 });
