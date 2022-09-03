@@ -107,3 +107,5 @@ node_modules
 
 db/*
 local_files/*
+.babelrc
+.prettierrc
