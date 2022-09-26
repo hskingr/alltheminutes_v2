@@ -1,3 +1,13 @@
+// Regex is not working
+// once this function is working
+// i can use the results to either
+// delete the entry in the db if invalid
+// do nothing if valid
+
+// if the entry is invalid then
+// delete the entry in the db
+// and search for a new entry -> retweet if exists.
+
 import getRetweetId from './getRetweetId.js';
 import { set } from 'date-fns';
 import pkg from 'date-fns-tz';
