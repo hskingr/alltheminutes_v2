@@ -109,3 +109,4 @@ db/*
 local_files/*
 .babelrc
 .prettierrc
+.vscode/*
