@@ -5,6 +5,8 @@ export default function doesARetweetExist(timeNow) {
     const db = new JSONdb(`db/storage.json`);
     if (db.has(timeNow)) {
       // entry exists so send true (unretweet)
+      // if the entry is true, then run a validation to see if
+      // the tweet is valid then return true
       return true;
     }
     return false;
