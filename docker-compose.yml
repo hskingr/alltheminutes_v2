@@ -15,4 +15,4 @@ services:
       - ACCESS_TOKEN_SECRET
       - TWITTER_USER_ID
     volumes:
-      - ${CONTAINER_DATA_LOCATION}:/usr/src/app/db
+      - ${CONTAINER_DATA_LOCATION}:/usr/src/app/db:rw
