@@ -18,15 +18,10 @@ export default function runTweetByRegex(timeNow, { data: { text } }) {
     const timeOptionTwoMinutes = formatInTimeZone(date, 'Europe/London', 'mm');
     const amPm = formatInTimeZone(date, 'Europe/London', 'a');
 
-    // console.log(timeOptionOne, timeOptionTwo);
-    // make sure regex can check for (case insensitive)
-    // its  it's
-    // 23:22 11:22pm
-    // 01:44 1:44am 01:44am
-    // console.log(text);
-    // const oldRegex = /^It['’]s\s(?:(?:23:55)|(?:11:55pm))\sand.+?/gi;
-    // I have to create the regex this way to add dynamic time variables in.
-    const regex = new RegExp(`^It['’]s\\s(?:(?:${timeOptionOne})|(?:0?${timeOptionTwoHours}[:.]${timeOptionTwoMinutes}(?:\\s${amPm}|${amPm})))\\sand.+?`, `gi`);
+    // With 24 hour and 12 hour options
+    // const regex = new RegExp(`^It['’]s\\s(?:(?:${timeOptionOne})|(?:0?${timeOptionTwoHours}[:.]${timeOptionTwoMinutes}(?:\\s${amPm}|${amPm})))\\sand.+?`, `gi`);
+    // Just with 12 hour option
+    const regex = new RegExp(`^It['’]s\\s(?:0?${timeOptionTwoHours}[:.]${timeOptionTwoMinutes}(?:\\s${amPm}|${amPm}))\\sand.+?`, `gi`);
     // console.log(oldRegex);
     console.log(regex);
     if (regex.test(text) === true) {

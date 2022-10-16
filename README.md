@@ -1,6 +1,6 @@
 # All The Minutes
 
-```
+```bash
 cp .env.example .env
 ```
 
@@ -11,3 +11,9 @@ currently in the process of adding functionality to check if the tweet has been 
 5/10/22 update
 
 added validity checker in the process. Made the program more verbose.
+
+16/10/2022 update
+
+Validity checker is working well. Added more edge cases for the regex.
+Added a bio updater but currently do not have the correct access privileges to update the twitter bio via the api (v1).
+I am considering using one object which includes the twitterClient which can be passed along the different functions.
