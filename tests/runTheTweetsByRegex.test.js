@@ -107,3 +107,12 @@ test(`Return True: It's 2:42 PM and`, async () => {
   });
   expect(result).toBe(true);
 });
+
+test(`Return True: it’s 4.44pm and that’s important`, async () => {
+  const result = await runTheTweetByRegex('16:44', {
+    data: {
+      text: `it’s 4.44pm and that’s important`
+    }
+  });
+  expect(result).toBe(true);
+});

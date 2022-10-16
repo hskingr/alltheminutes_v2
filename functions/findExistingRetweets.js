@@ -14,7 +14,9 @@ export default async function findExistingRetweets(twitterClient, timeNow) {
       const tweetId = getRetweetId(timeNow);
       const tweet = await twitterClient.v2.singleTweet(tweetId);
       console.log(tweet);
-      if (tweet.data === null) {
+      if (typeof tweet.errors !== 'undefined') {
+        console.log(`----> Existing Retweet was an Error...Removing at ${timeNow}`);
+        removeEntryFromDB(timeNow);
         throw new Error();
       }
       const tweetText = tweet.data.text;

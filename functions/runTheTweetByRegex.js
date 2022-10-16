@@ -1,4 +1,4 @@
-import { set } from 'date-fns';
+import { set, format } from 'date-fns';
 import pkg from 'date-fns-tz';
 
 const { formatInTimeZone } = pkg;
@@ -13,10 +13,10 @@ export default function runTweetByRegex(timeNow, { data: { text } }) {
       minutes
     };
     const date = set(new Date(), dateOpts);
-    const timeOptionOne = formatInTimeZone(date, 'Europe/London', 'HH:mm');
-    const timeOptionTwoHours = formatInTimeZone(date, 'Europe/London', 'h');
-    const timeOptionTwoMinutes = formatInTimeZone(date, 'Europe/London', 'mm');
-    const amPm = formatInTimeZone(date, 'Europe/London', 'a');
+    // const timeOptionOne = formatInTimeZone(date, 'Europe/London', 'HH:mm');
+    const timeOptionTwoHours = format(date, 'h');
+    const timeOptionTwoMinutes = format(date, 'mm');
+    const amPm = format(date, 'a');
 
     // With 24 hour and 12 hour options
     // const regex = new RegExp(`^It['’]s\\s(?:(?:${timeOptionOne})|(?:0?${timeOptionTwoHours}[:.]${timeOptionTwoMinutes}(?:\\s${amPm}|${amPm})))\\sand.+?`, `gi`);
