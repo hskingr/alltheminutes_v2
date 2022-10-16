@@ -1,5 +1,6 @@
 import { set } from 'date-fns';
 import pkg from 'date-fns-tz';
+
 const { formatInTimeZone } = pkg;
 
 export default function runTweetByRegex(timeNow, { data: { text } }) {
@@ -13,7 +14,9 @@ export default function runTweetByRegex(timeNow, { data: { text } }) {
     };
     const date = set(new Date(), dateOpts);
     const timeOptionOne = formatInTimeZone(date, 'Europe/London', 'HH:mm');
-    const timeOptionTwo = formatInTimeZone(date, 'Europe/London', 'h:mma');
+    const timeOptionTwoHours = formatInTimeZone(date, 'Europe/London', 'h');
+    const timeOptionTwoMinutes = formatInTimeZone(date, 'Europe/London', 'mm');
+    const amPm = formatInTimeZone(date, 'Europe/London', 'a');
 
     // console.log(timeOptionOne, timeOptionTwo);
     // make sure regex can check for (case insensitive)
@@ -23,9 +26,9 @@ export default function runTweetByRegex(timeNow, { data: { text } }) {
     // console.log(text);
     // const oldRegex = /^It['’]s\s(?:(?:23:55)|(?:11:55pm))\sand.+?/gi;
     // I have to create the regex this way to add dynamic time variables in.
-    const regex = new RegExp(`^It['’]s\\s(?:(?:${timeOptionOne})|(?:${timeOptionTwo}))\\sand.+?`, `gi`);
+    const regex = new RegExp(`^It['’]s\\s(?:(?:${timeOptionOne})|(?:0?${timeOptionTwoHours}[:.]${timeOptionTwoMinutes}(?:\\s${amPm}|${amPm})))\\sand.+?`, `gi`);
     // console.log(oldRegex);
-    // console.log(regex);
+    console.log(regex);
     if (regex.test(text) === true) {
       return true;
     }
