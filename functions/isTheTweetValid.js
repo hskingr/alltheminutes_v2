@@ -1,12 +1,4 @@
-// Regex is not working
-// once this function is working
-// i can use the results to either
-// delete the entry in the db if invalid
-// do nothing if valid
-
-// if the entry is invalid then
-// delete the entry in the db
-// and search for a new entry -> retweet if exists.
+// This is not in use
 
 import getRetweetId from './getRetweetId.js';
 import runTweetByRegex from './runTheTweetByRegex.js';

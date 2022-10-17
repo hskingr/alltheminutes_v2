@@ -1,7 +1,4 @@
 import { set, format } from 'date-fns';
-import pkg from 'date-fns-tz';
-
-const { formatInTimeZone } = pkg;
 
 export default function runTweetByRegex(timeNow, { data: { text } }) {
   try {
