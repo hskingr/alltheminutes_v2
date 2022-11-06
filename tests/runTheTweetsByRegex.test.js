@@ -107,3 +107,21 @@ test(`Return True: It's 2:42 PM and`, async () => {
   });
   expect(result).toBe(true);
 });
+
+test(`Return True: it’s 4.44pm and that’s important`, async () => {
+  const result = await runTheTweetByRegex('16:44', {
+    data: {
+      text: `it’s 4.44pm and that’s important`
+    }
+  });
+  expect(result).toBe(true);
+});
+
+test(`Return False: it’s not the right tempo yet bc it HURTS my wrist like a bitch`, async () => {
+  const result = await runTheTweetByRegex('20:56', {
+    data: {
+      text: `it’s not the right tempo yet bc it HURTS my wrist like a bitch and i can’t have my amp loud as it’s 20:56 and i will get jumped`
+    }
+  });
+  expect(result).toBe(false);
+});

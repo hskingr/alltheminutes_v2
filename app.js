@@ -42,10 +42,12 @@ async function main(timeNow) {
         findExistingRetweets(twitterClient, timeNow);
       } else {
         // retweet the tweet that matches It's xx:xx and
+        const tweetText = filteredTweets[0].text;
+        const tweetId = filteredTweets[0].id;
         console.log(`--> Found Original Tweet To Retweet At ${timeNow}`);
-        console.log(`----> ${filteredTweets[0].text.substring(0, 30)}...`);
-        await twitterClient.v2.retweet(process.env.TWITTER_USER_ID, filteredTweets[0].id);
-        addTweetIdToJson(timeNow, filteredTweets[0].id);
+        console.log(`----> ${tweetText.substring(0, 30)}...`);
+        await twitterClient.v2.retweet(process.env.TWITTER_USER_ID, tweetId);
+        addTweetIdToJson(timeNow, tweetId, tweetText);
         // retweet the tweet
       }
     }
