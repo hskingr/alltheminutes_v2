@@ -1,8 +1,6 @@
 import doesARetweetExist from './doesARetweetExist.js';
-import addTweetIdToJson from './addTweetIdToJson.js';
 import runTweetByRegex from './runTheTweetByRegex.js';
 import getRetweetId from './getRetweetId.js';
-import isTheTweetValid from './isTheTweetValid.js';
 import removeEntryFromDB from './removeEntryFromDB.js';
 
 export default async function findExistingRetweets(twitterClient, timeNow) {
