@@ -11,8 +11,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "npm i",
 	"mounts": [
-		"type=bind,source=${localWorkspaceFolder},target=/work",
-		"type=bind,source=/home/${localEnv:USER}/.ssh,target=/root/.ssh,readonly"
+		"type=bind,source=/home/harry/.ssh,target=/home/node/.ssh,readonly"
 	]
 	// Configure tool-specific properties.
 	// "customizations": {},
