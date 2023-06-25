@@ -17,3 +17,7 @@ added validity checker in the process. Made the program more verbose.
 Validity checker is working well. Added more edge cases for the regex.
 Added a bio updater but currently do not have the correct access privileges to update the twitter bio via the api (v1).
 I am considering using one object which includes the twitterClient which can be passed along the different functions.
+
+25/06/2023 update
+
+it seems that API access has changed in twitter and I am not able to search for retweets anymore unless I pay $100 a month. For now, this bot no longer works.
